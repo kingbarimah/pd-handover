@@ -1,0 +1,8 @@
+{
+  "strip_patterns": [],
+  "strip_prefixes": [],
+  "alert_detail_field": "SERVICEOUTPUT",
+  "alert_detail_strip": [],
+  "line_template": "• {service} - {title} - [RESOLUTION]",
+  "line_template_with_detail": "• {service} - {title} / {detail} - [RESOLUTION]"
+}
