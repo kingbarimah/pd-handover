@@ -3,14 +3,12 @@ import os, sys, requests, re, json, time
 from datetime import datetime, timedelta
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-# ---------------------------------------------------------------------------
-# Configuration — loaded from environment variables
-# Set these before running:
+# Configuration is loaded from environment variables
+# Please set these before running:
 #   export PD_API_KEY=your-api-key
 #   export PD_MY_NAME="Your Name"
 #   export PD_NOTES_FOLDER=/path/to/handovers
 #   export PD_META_FOLDER=/path/to/metadata
-# ---------------------------------------------------------------------------
 full_name       = os.environ.get("PD_MY_NAME", "")
 notes_folder    = os.environ.get("PD_NOTES_FOLDER", "./handovers")
 metadata_folder = os.environ.get("PD_META_FOLDER", "./.handover_metadata")
@@ -64,7 +62,7 @@ def load_existing_incident_ids(handover_file, date_str):
 
     return lines, ids, meta_file
 
-# Add incident ids to metadata file - helps prevent duplicates
+# Add incident ids to metadata file (helps prevent duplicates)
 def save_incident_ids(meta_file, ids):
     with open(meta_file, 'w') as f:
         json.dump(list(ids), f, indent=2)
